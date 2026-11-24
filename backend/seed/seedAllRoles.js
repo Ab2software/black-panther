@@ -11,7 +11,7 @@ const ROLES_DATA = [
     password: "Owner@123",
     phone: "9100000001",
     fullName: "Master Platform Owner",
-    email: "owner@eagleexchang.com",
+    email: "owner@blackpanther.com",
     balance: 10000000,
     canCreateUser: true,
     canBet: false,
@@ -22,7 +22,7 @@ const ROLES_DATA = [
     password: "Super@123",
     phone: "9100000002",
     fullName: "Head Super Admin",
-    email: "superadmin@eagleexchang.com",
+    email: "superadmin@blackpanther.com",
     balance: 5000000,
     canCreateUser: true,
     canBet: false,
@@ -34,7 +34,7 @@ const ROLES_DATA = [
     password: "Admin@123",
     phone: "9100000003",
     fullName: "Branch Admin",
-    email: "admin@eagleexchang.com",
+    email: "admin@blackpanther.com",
     balance: 2000000,
     canCreateUser: true,
     canBet: false,
@@ -46,7 +46,7 @@ const ROLES_DATA = [
     password: "Subadmin@123",
     phone: "9100000004",
     fullName: "Regional Sub Admin",
-    email: "subadmin@eagleexchang.com",
+    email: "subadmin@blackpanther.com",
     balance: 1000000,
     canCreateUser: true,
     canBet: false,
@@ -58,7 +58,7 @@ const ROLES_DATA = [
     password: "Master@123",
     phone: "9100000005",
     fullName: "Senior Master Broker",
-    email: "master@eagleexchang.com",
+    email: "master@blackpanther.com",
     balance: 500000,
     canCreateUser: true,
     canBet: false,
@@ -70,7 +70,7 @@ const ROLES_DATA = [
     password: "Agent@123",
     phone: "9100000006",
     fullName: "Direct Area Agent",
-    email: "agent@eagleexchang.com",
+    email: "agent@blackpanther.com",
     balance: 200000,
     canCreateUser: true,
     canBet: false,
@@ -82,7 +82,7 @@ const ROLES_DATA = [
     password: "Player@123",
     phone: "9100000007",
     fullName: "Main Test Bettor",
-    email: "player@eagleexchang.com",
+    email: "player@blackpanther.com",
     balance: 50000,
     canCreateUser: false,
     canBet: true,
@@ -112,7 +112,7 @@ async function seedAll() {
         user.fullName = item.fullName;
         user.email = item.email;
         user.status = "active";
-        user.siteId = "eagleexchang";
+        user.siteId = process.env.SITE_ID || "blackpanther";
         user.isVerified = true;
         if (item.role !== "user") {
           user.adminStatus = "active";
@@ -151,7 +151,7 @@ async function seedAll() {
           role: item.role,
           status: "active",
           adminStatus: item.role !== "user" ? "active" : undefined,
-          siteId: "eagleexchang",
+          siteId: process.env.SITE_ID || "blackpanther",
           isVerified: true,
           parentId,
           createdBy: parentId,

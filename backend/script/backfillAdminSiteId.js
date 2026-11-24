@@ -11,7 +11,7 @@ require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") }
       role: { $in: ["owner", "admin", "subadmin", "superadmin", "master", "agent"] },
       siteId: { $exists: false },
     },
-    { $set: { siteId: "eagleexchang" } },
+    { $set: { siteId: process.env.SITE_ID || "blackpanther" } },
   );
 
   console.log(`Matched: ${result.matchedCount}, Modified: ${result.modifiedCount}`);

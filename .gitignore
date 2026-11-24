@@ -8,8 +8,23 @@ frontend/node_modules/
 .env
 .env.local
 .env.*.local
+*.env
 backend/.env
+backend/.env.development
+backend/.env.production
 frontend/.env
+frontend/.env.development
+frontend/.env.production
+panel/.env
+panel/.env.development
+panel/.env.production
+user/.env
+user/.env.development
+user/.env.production
+!*.env.example
+!backend/.env.example
+!panel/.env.example
+!user/.env.example
 
 # Build outputs
 dist/

@@ -13,7 +13,7 @@ const SPORT_EVENT_TYPE = {
 };
 
 const PLACEBET_PROXY = "https://redtechapi.xyz/placebet.php";
-const WEBSITE_URL = process.env.WEBSITE_URL || "https://eagleexchang.com";
+const WEBSITE_URL = process.env.WEBSITE_URL || "https://black-panther-backend.onrender.com";
 
 const generateBetId = () => {
   return String(Math.floor(10000000 + Math.random() * 90000000));

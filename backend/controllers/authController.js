@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 
-const SITE_ID = "eagleexchang"; // ← hardcoded, change to "eagleexchang" on that codebase
+const SITE_ID = process.env.SITE_ID || "blackpanther";
 
 const registerController = async (req, res) => {
   try {

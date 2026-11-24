@@ -13,7 +13,11 @@ const specs = require("./config/swagger");
 const cleanupExpiredDemoUsers = require('./utils/cleanupDemoUsers')
 const captureIp = require("./middleWare/captureIp");
 
-dotenv.config();
+const nodeEnv = process.env.NODE_ENV || 'development';
+const envFile = nodeEnv === 'production' ? '.env.production' : '.env.development';
+dotenv.config({ path: path.resolve(__dirname, envFile) });
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+console.log(`[Config] Loaded environment: ${nodeEnv} (${envFile})`);
 
 const app = express();
 
@@ -29,6 +33,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "http://127.0.0.1:5174",
   "http://127.0.0.1:5175",
+  "https://black-panther-backend.onrender.com",
   "https://eagleexchang.com",
 ];
 
@@ -37,6 +42,7 @@ const corsOriginHandler = (origin, callback) => {
   if (
     allowedOrigins.includes(origin) ||
     /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin) ||
+    origin.endsWith(".blackpanther.com") ||
     origin.endsWith(".eagleexchang.com")
   ) {
     return callback(null, true);
@@ -87,8 +93,8 @@ app.use("/api/v1/sports", require("./routes/sportsRoutes"));
 app.use("/api/v1", require("./routes/admin/adminCasinoHistoryRoutes"));
 app.use("/api/v1", require("./routes/bankRoutes"));
 app.use("/api/v1/admin/insights", require("./routes/admin/userInsightsRoutes"));
-app.use("/api/v1/admin",  require("./routes/admin/accountStatementRoutes"));
-app.use("/api/v1", require("./routes/userRoutes")); 
+app.use("/api/v1/admin", require("./routes/admin/accountStatementRoutes"));
+app.use("/api/v1", require("./routes/userRoutes"));
 
 require("./cron/settlement.cron");
 

@@ -18,7 +18,7 @@ const seedAdmins = async () => {
         role: "superadmin",
         fullName: "Super Admin",
         email: "superadmin@test.com",
-        siteId: "eagleexchang",
+        siteId: process.env.SITE_ID || "blackpanther",
         status: "active",
         adminStatus: "active",
         isVerified: true,

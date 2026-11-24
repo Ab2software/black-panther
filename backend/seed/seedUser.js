@@ -16,7 +16,7 @@ const seedUser = async () => {
       role: "user",
       fullName: "Test Player",
       email: "testuser@example.com",
-      siteId: "eagleexchang",
+      siteId: process.env.SITE_ID || "blackpanther",
       status: "active",
       isVerified: true,
       wallet: {

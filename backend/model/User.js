@@ -229,7 +229,8 @@ const userSchema = new mongoose.Schema({
   siteId: {
     type: String,
     required: false,
-    enum: ['eagleexchang'],
+    enum: ['blackpanther', 'eagleexchang'],
+    default: 'blackpanther',
     index: true
   },
   
