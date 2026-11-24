@@ -320,7 +320,7 @@ export default function Account({ onOpenAuth, onOpenDeposit, onOpenWithdraw }) {
             <ChevronRight size={16} className="arrow-icon" />
           </Link>
 
-          <Link to="/games/casino" className="quick-link-item">
+          <Link to="/casino" className="quick-link-item">
             <div className="icon-wrap casino">
               <Dices size={20} />
             </div>
