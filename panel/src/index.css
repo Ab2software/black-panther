@@ -1,0 +1,110 @@
+@import "tailwindcss";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== OVERLAY FIX ===== */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* ABOVE EVERYTHING */
+}
+
+/* ===== BOX ===== */
+.auth-box {
+  width: 400px;
+  border-radius: 14px;
+  padding: 20px;
+  color: white;
+
+  background: linear-gradient(180deg, #0b1f23, #132f35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ===== HEADER ===== */
+.auth-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.auth-header .close {
+  cursor: pointer;
+}
+
+/* ===== LOGO ===== */
+.auth-logo {
+  width: 180px;
+  margin: 10px auto 20px;
+  display: block;
+}
+
+/* ===== FORM ===== */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.auth-form input {
+  height: 42px;
+  border-radius: 8px;
+  border: none;
+  padding: 0 12px;
+  background: #e5e7eb;
+  color: black;
+  outline: none;
+}
+
+/* ===== BUTTONS ===== */
+.primary {
+  background: #2f4f54;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+.secondary {
+  background: #2f4f54;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.download {
+  background: #65b168;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.link {
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.bottom-text span {
+  font-weight: bold;
+} 

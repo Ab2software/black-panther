@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.cricket-board {
+  width: 100%;
+  background: #f2f2f2;
+  border: 1px solid #d7d7d7;
+  overflow: hidden;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.cricket-board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  background: #efefef;
+  border-bottom: 2px solid #1f1f1f;
+}
+
+.live-badge {
+  display: inline-block;
+  background: #e53935;
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.8px;
+  margin-top: 4px;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+.cricket-board-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cricket-title-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b1e1e, #cc3b3b);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cricket-title-icon::before,
+.cricket-title-icon::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+}
+
+.cricket-title-icon::before {
+  width: 2px;
+  height: 12px;
+  left: 6px;
+  top: 3px;
+  transform: rotate(25deg);
+}
+
+.cricket-title-icon::after {
+  width: 2px;
+  height: 12px;
+  left: 10px;
+  top: 3px;
+  transform: rotate(25deg);
+}
+
+.cricket-board-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.cricket-board-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border: 2px solid #222;
+  background: #fff;
+  border-radius: 999px;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  color: #111;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-pill:hover {
+  transform: translateY(-1px);
+}
+
+.filter-plus {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 700;
+  margin-top: -1px;
+}
+
+.cricket-board-body {
+  width: 100%;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: 185px minmax(320px, 1.3fr) 96px minmax(720px, 1fr);
+  align-items: stretch;
+  min-height: 86px;
+  border-bottom: 1px solid #e2e2e2;
+  background: #f3f3f3;
+}
+
+.match-row:last-child {
+  border-bottom: 0;
+}
+
+.match-time-col {
+  position: relative;
+  padding: 14px 42px 14px 14px;
+  border-right: 1px solid #d8d8d8;
+  text-align: center;
+}
+
+.match-day {
+  color: #3f8e46;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.match-time {
+  margin-top: 5px;
+  color: #3f8e46;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.live-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff2b2b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 3px 5px;
+  border-radius: 2px;
+}
+
+.match-name-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+}
+
+.team-name {
+  color: #111;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.15;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.match-badges-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 10px 8px 10px 0;
+}
+
+.market-badge {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 7px;
+  border-radius: 5px;
+  background: #33475a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-badge.icon-badge {
+  padding: 0;
+}
+
+.market-badge.icon-badge svg {
+  width: 17px;
+  height: 17px;
+}
+
+.market-badge.green {
+  background: #4f9a3f;
+}
+
+.match-odds-col {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(110px, 1fr));
+  min-width: 0;
+}
+
+.odds-cell-wrap {
+  min-width: 0;
+}
+
+.odds-cell {
+  height: 100%;
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #e3dede;
+  border-bottom: 1px solid #ebe3e3;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.odds-cell.back {
+  background: #a8d0ef;
+}
+
+.odds-cell.lay {
+  background: #efc3cf;
+}
+
+/* .odds-cell.empty {
+  background: #dfeef9;
+  cursor: default;
+} */
+
+.odds-cell.empty:nth-child(even) {
+  background: #f3dde4;
+}
+
+.odds-cell:hover:not(.empty) {
+  filter: brightness(0.97);
+}
+
+.odds-cell.empty span {
+  font-size: 28px;
+  font-weight: 700;
+  color: #777;
+  line-height: 1;
+}
+
+.odds-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: #101010;
+  line-height: 1;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.odds-amount {
+  margin-top: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 1400px) {
+  .match-row {
+    grid-template-columns: 165px minmax(260px, 1.2fr) 90px minmax(660px, 1fr);
+  }
+
+  .team-name {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .cricket-board {
+    overflow-x: auto;
+  }
+
+  .cricket-board-header,
+  .cricket-board-body {
+    min-width: 1180px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .cricket-board-header,
+  .cricket-board-body {
+    min-width: unset !important;
+  }
+
+  .match-badges-col {
+    display: none !important;
+  }
+
+  .cricket-board-title {
+    font-size: 20px;
+  }
+
+  .filter-pill {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 15px;
+  }
+
+  /* Row becomes its own horizontal scroll container */
+  .match-row {
+    display: flex;
+    align-items: stretch;
+    min-height: 50px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .match-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* =========================
+     TIME COLUMN
+     Increased from 62px → 82px
+     ========================= */
+  .match-time-col {
+    flex: 0 0 82px;
+    width: 120px;
+    min-width: 120px;
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    background: #f3f3f3;
+    padding: 8px 8px;
+    border-right: 1px solid #d8d8d8;
+    text-align: center;
+  }
+
+  /* Unbold time/day text */
+  .match-day,
+  .match-time {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .match-time {
+    margin-top: 4px;
+  }
+
+  /* LIVE badge */
+  .live-badge {
+    top: 4px;
+    right: 4px;
+    font-size: 8px;
+    padding: 2px 3px;
+  }
+
+  /* =========================
+     TEAM NAME COLUMN
+     Increased from 140px → 180px
+     ========================= */
+  .match-name-col {
+    flex: 0 0 180px;
+    width: 220px;
+    min-width: 220px;
+    position: sticky;
+    left: 82px;
+    z-index: 2;
+    background: #f3f3f3;
+    padding: 8px 10px;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+
+  /* Team names */
+  .team-name {
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* =========================
+     ODDS COLUMN
+     ========================= */
+  .match-odds-col {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .odds-cell-wrap {
+    flex: 0 0 110px;
+  }
+
+  .odds-cell {
+    min-height: 60px;
+  }
+
+  .odds-value {
+    font-size: 19px;
+  }
+
+  .odds-amount {
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .odds-cell.empty span {
+    font-size: 18px;
+  }
+}

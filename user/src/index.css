@@ -1,0 +1,205 @@
+/* ============================================================
+   BLACK PANTHER - HIGH PERFORMANCE MOBILE-FIRST EXCHANGE STYLES
+   ============================================================ */
+
+:root {
+  --bg-dark: #e6ebef;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --gold-primary: #d4af37;
+  --gold-light: #fef08a;
+  --gold-dark: #a98518;
+  --odds-back: #72bbef;
+  --odds-back-text: #061f36;
+  --odds-lay: #faa9ba;
+  --odds-lay-text: #380d17;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --text-primary: #1e293b;
+  --text-muted: #64748b;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background-color: #e6ebef;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+code, kbd, samp, pre {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Fast tap targets and transitions */
+button, a, input, select {
+  touch-action: manipulation;
+}
+
+button:active {
+  transform: scale(0.97);
+  transition: transform 0.08s ease;
+}
+
+/* Hardware accelerated smooth scrolling */
+.smooth-scroll-x {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+}
+.smooth-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Keyframe animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+.pulse-glow {
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-up {
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.slide-in-right {
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+/* Responsive grid and layouts */
+.desktop-nav {
+  display: flex !important;
+}
+
+.mobile-menu-btn {
+  display: none !important;
+}
+
+.mobile-bottom-nav {
+  display: none !important;
+}
+
+.mobile-betslip-sheet {
+  display: none;
+}
+
+.sports-layout {
+  grid-template-columns: 1fr 380px !important;
+}
+
+.desktop-betslip-dock {
+  display: block;
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+
+.casino-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+}
+
+/* Mobile Breakpoint <= 840px */
+@media (max-width: 840px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  .mobile-bottom-nav {
+    display: flex !important;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+  .sports-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .desktop-betslip-dock {
+    display: none !important;
+  }
+  .casino-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .mobile-betslip-sheet {
+    display: block;
+    position: fixed;
+    bottom: calc(56px + var(--safe-bottom));
+    left: 8px;
+    right: 8px;
+    z-index: 95;
+    max-width: 440px;
+    margin: 0 auto;
+    filter: drop-shadow(0 -8px 24px rgba(0, 0, 0, 0.7));
+  }
+}
+
+/* Small Smartphone Breakpoint <= 480px */
+@media (max-width: 480px) {
+  .logo-text-full {
+    display: none !important;
+  }
+  .casino-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .header-actions {
+    gap: 6px !important;
+  }
+}
