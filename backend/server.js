@@ -22,40 +22,31 @@ console.log(`[Config] Loaded environment: ${nodeEnv} (${envFile})`);
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-app.use(captureIp);
-connectDb();
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "http://localhost:5175",
-  "http://localhost:3000",
-  "http://127.0.0.1:5173",
-  "http://127.0.0.1:5174",
-  "http://127.0.0.1:5175",
-  "https://black-panther-backend.onrender.com",
-  "https://eagleexchang.com",
-];
-
+// Dynamic CORS origin handler - allows all incoming origins (local dev, Render, Vercel, Netlify, custom domains)
+// and properly reflects the origin to support withCredentials: true
 const corsOriginHandler = (origin, callback) => {
-  if (!origin) return callback(null, true);
-  if (
-    allowedOrigins.includes(origin) ||
-    /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin) ||
-    origin.endsWith(".blackpanther.com") ||
-    origin.endsWith(".eagleexchang.com")
-  ) {
-    return callback(null, true);
-  }
-  return callback(null, false);
+  callback(null, true);
 };
 
-app.use(cors({
+const corsOptions = {
   origin: corsOriginHandler,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "x-token", "token"],
-}));
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "x-token",
+    "token",
+    "Accept",
+    "Origin",
+    "X-Requested-With",
+  ],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.use(captureIp);
+connectDb();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
